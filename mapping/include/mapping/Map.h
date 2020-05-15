@@ -49,6 +49,7 @@ class Map {
   void markGoal();
 
   void markWaypoint(int x, int y);
+  
 
  private:
 
@@ -57,7 +58,7 @@ class Map {
   void publishPose();
 
   void goalCallback(const geometry_msgs::PoseStamped::ConstPtr &goal);
-
+  void poseCallback(const geometry_msgs::PoseStamped::ConstPtr &pose);
   static void onMouse(int event, int x, int y, int flags, void* ptr);
 
   ros::NodeHandle nh_;
@@ -67,6 +68,7 @@ class Map {
   ros::Publisher goal_pub_;
   ros::Publisher pose_pub_;
 
+  ros::Subscriber pose_sub_;
   ros::Subscriber goal_sub_;
 
   std::string map_topic_;

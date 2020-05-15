@@ -33,7 +33,9 @@ class RRTPlanner : public Planner {
   std::vector<Vertex> connectPoints(Vertex a, Vertex b);
 
   void addToGraph(std::vector<Vertex>& points, Vertex point);
-
+  bool start_flag;
+  std::vector<Vertex> path_tranformed;
+  std::vector<Vertex> queryPlan();
   std::vector<Vertex> getPlan() override;
 
   std::vector<Vertex> getPath(Vertex src, Vertex dest);
